@@ -15,23 +15,23 @@
     <form method="post">
         <div class="mb-3">
             <label class="form-label">Name</label>
-            <input type="text" class="form-control" id="nameP" name="name">
+            <input type="text" class="form-control" value="${requestScope["productEdit"].getProductName()}">
         </div>
         <div class="mb-3">
             <label class="form-label">Price</label>
-            <input type="number" class="form-control" id="price" name="price">
+            <input type="number" class="form-control" value="${requestScope["productEdit"].getPrice()}">
         </div>
         <div class="mb-3">
             <label class="form-label">Quantity</label>
-            <input type="number" class="form-control" id="quantity" name="quantity">
+            <input type="number" class="form-control" value="${requestScope["productEdit"].getQuantity()}">
         </div>
         <div class="mb-3">
             <label class="form-label">Color</label>
-            <input type="text" class="form-control" id="color" name="color">
+            <input type="text" class="form-control" value="${requestScope["productEdit"].getColor()}">
         </div>
         <div class="mb-3">
             <label class="form-label">Description</label>
-            <input type="text" class="form-control" id="description" name="description">
+            <input type="text" class="form-control" value="${requestScope["productEdit"].getDescription()}">
         </div>
         <div class="mb-3">
             <label class="form-label">Category</label>

@@ -114,8 +114,8 @@ public class ProductServlet extends HttpServlet {
         Product product = this.productService.findById(id);
         RequestDispatcher dispatcher;
 
-            request.setAttribute("productDelete", product);
-            dispatcher = request.getRequestDispatcher("product/delete.jsp");
+        request.setAttribute("productDelete", product);
+        dispatcher = request.getRequestDispatcher("product/delete.jsp");
 
         try {
             dispatcher.forward(request, response);
@@ -164,9 +164,14 @@ public class ProductServlet extends HttpServlet {
         String color = request.getParameter("color");
         String description = request.getParameter("description");
         String category = request.getParameter("category");
-        Product newProduct = new Product(nameProduct, price, quantity, color, description, category);
+        product.setProductName(nameProduct);
+        product.setPrice(price);
+        product.setQuantity(quantity);
+        product.setColor(color);
+        product.setDescription(description);
+        product.setCategory(category);
 
-        this.productService.edit(newProduct);
+        this.productService.edit(product);
         dispatcher = request.getRequestDispatcher("product/edit.jsp");
         try {
             dispatcher.forward(request, response);

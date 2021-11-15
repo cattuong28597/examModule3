@@ -56,7 +56,7 @@ public class ProductServiceImp implements ProductService {
         return listProduct;
     }
 
-    String SHOW_PRODUCT_BY_ID = "SELECT id, productName, price, quantity, color, category FROM products WHERE id = ?";
+    String SHOW_PRODUCT_BY_ID = "SELECT id, productName, price, quantity, color, category, des FROM products WHERE id = ?";
 
     @Override
     public Product findById(int id) {
@@ -69,14 +69,14 @@ public class ProductServiceImp implements ProductService {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
-                int idProduct = rs.getInt("id");
+//                int idProduct = rs.getInt("id");
                 String name = rs.getString("productName");
                 int price = rs.getInt("price");
                 int quantity = rs.getInt("quantity");
                 String color = rs.getString("color");
                 String category = rs.getString("category");
                 String description = rs.getString("des");
-                product = new Product(name, price, quantity,color,category,description);
+                product = new Product(id, name, price, quantity,color,category,description);
             }
         } catch (SQLException e) {
             e.printStackTrace();
